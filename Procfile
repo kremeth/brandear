@@ -1,2 +1,1 @@
-web: gunicorn processWebhook:app --log-file -
-worker: python worker.py
+web: gunicorn brandear:app --log-file -
