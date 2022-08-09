@@ -132,7 +132,7 @@ def get_items():
 
 
 
-    return data.to_json()
+    return data.to_json(orient="records")
 
 
 # APP_ID = 'MathieuK-brandear-PRD-c13e2103b-cda61bfa'
