@@ -120,19 +120,19 @@ def get_items():
     data = data[data['item_price'] < 400/1.4][data['item_category'] == "Women's Bags & Handbags"]
     data.reset_index(inplace=True, drop=True)
 
-    data2 = [data.columns.values.tolist()]
-    data2.extend(data.values.tolist())
-    value_range_body = {"values": data2}
+    # data2 = [data.columns.values.tolist()]
+    # data2.extend(data.values.tolist())
+    # value_range_body = {"values": data2}
 
-    value_range_body = {
-        "majorDimension":"COLUMNS",
-        "values":
-            [data2]
-        }
+    # value_range_body = {
+    #     "majorDimension":"COLUMNS",
+    #     "values":
+    #         [data2]
+    #     }
 
 
 
-    return value_range_body
+    return data.to_json()
 
 
 # APP_ID = 'MathieuK-brandear-PRD-c13e2103b-cda61bfa'
@@ -158,7 +158,7 @@ def get_items():
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
     # app.debug = True
-    app.run(debug=False, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
 
 
 
