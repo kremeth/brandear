@@ -120,7 +120,19 @@ def get_items():
     data = data[data['item_price'] < 400/1.4][data['item_category'] == "Women's Bags & Handbags"]
     data.reset_index(inplace=True, drop=True)
 
-    return data.to_json()
+    data2 = [data.columns.values.tolist()]
+    data2.extend(data.values.tolist())
+    value_range_body = {"values": data2}
+
+    value_range_body = {
+        "majorDimension":"COLUMNS",
+        "values":
+            [data2]
+        }
+
+
+
+    return value_range_body
 
 
 # APP_ID = 'MathieuK-brandear-PRD-c13e2103b-cda61bfa'
