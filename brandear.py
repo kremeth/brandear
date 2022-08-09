@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 from ebaysdk.shopping import Connection as Shopping
 import flask
+import os
 
 
 app = flask.Flask(__name__)
@@ -144,8 +145,8 @@ def get_items():
 
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
-    app.debug = True
-    app.run()
+    # app.debug = True
+    app.run(debug=False, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
 
 
 
